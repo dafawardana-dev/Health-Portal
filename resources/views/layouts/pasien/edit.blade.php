@@ -1,0 +1,59 @@
+@extends('layouts.master')
+
+@section('title', 'Aplikasi Rumah Sakit')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>
+                <center>Edit Data Pasien</center>
+            </h1>
+            <br>
+            <form action="{{route('pasien.update', $data->id)}}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="nama_pasien" class="form-label">Nama Pasien</label>
+                    <input type="text" class="form-control" id="nama_pasien" name="nama_pasien"
+                        placeholder="Input Nama Pasien" value="{{$data->nama_pasien}}">
+                </div>
+                <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Input Alamat Pasien"
+                        value="{{$data->alamat}}">
+                </div>
+                <div class="mb-3">
+                    <label for="no_hp" class="form-label">No Handphone</label>
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Inpu No Handphone"
+                        value="{{$data->no_hp}}">
+                </div>
+                <div class="mb-3">
+                    <label for="umur" class="form-label">Umur</label>
+                    <input type="text" class="form-control" id="umur" name="umur" placeholder="Input Umur Pasien"
+                        value="{{$data->umur}}">
+                </div>
+                <div class="mb-3">
+                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                    <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin"
+                        placeholder="Input Jenis Kelamin Pasien" value="{{$data->jenis_kelamin}}">
+                </div>
+                <div class="mb-3">
+                    <label for="poli" class="form-label">Poli</label>
+                    <input type="text" class="form-control" id="poli" name="poli" placeholder="Input Poli Pasien"
+                        value="{{$data->poli}}">
+                </div>
+                <div class="mb-3">
+                    <label for="id_dokter" class="form-label">Dokter</label>
+                    <input type="text" class="form-control" id="id_dokter" name="id_dokter" placeholder="Input Dokter Pasien"
+                        value="{{$data->id_dokter}}">        
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{route('pasien.index')}}" class="btn btn-success">Kembali</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@endsection
